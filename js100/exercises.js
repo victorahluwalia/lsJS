@@ -1,22 +1,19 @@
-let vocabulary = [
-  ['happy', 'cheerful', 'merry', 'glad'],
-  ['tired', 'sleepy', 'fatigued', 'drained'],
-  ['excited', 'eager', 'enthused', 'animated']
-];
+let groceryList = ['paprika', 'tofu', 'garlic', 'quinoa', 'carrots', 'broccoli', 'hummus'];
 
-// Expected output:
-// happy
-// cheerful
-// merry
-// etc...
+// Your code.
+
+// logs:
+// paprika
+// tofu
+// garlic
+// quinoa
+// carrots
+// broccoli
+// hummus
 
 
-for (let i = 0; i < vocabulary.length; i++) {
-    let newArr = vocabulary[i];
-
-    for ( let x = 0; x < newArr.length; x++) {
-      console.log(newArr[x]);
-    }
-
-  
+while (groceryList.length > 0) {
+  console.log(groceryList.shift());
 }
+
+groceryList; // []
