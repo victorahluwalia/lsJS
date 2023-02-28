@@ -1,19 +1,14 @@
-let groceryList = ['paprika', 'tofu', 'garlic', 'quinoa', 'carrots', 'broccoli', 'hummus'];
-
-// Your code.
-
-// logs:
-// paprika
-// tofu
-// garlic
-// quinoa
-// carrots
-// broccoli
-// hummus
-
-
-while (groceryList.length > 0) {
-  console.log(groceryList.shift());
+function greeting() {
+  return 'Good morning';
 }
 
-groceryList; // []
+function recipient() {
+  return 'Launch School';
+}
+
+
+greet();
+function greet() {
+  console.log(`${greeting()}, ${recipient()}`)
+};
+
