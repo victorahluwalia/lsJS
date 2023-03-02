@@ -1,33 +1,55 @@
-// Import readline-sync
 const rlSync = require("readline-sync");
 
-// Greet the user
-console.log('Hi! Welcome to the calculator.');
-
-// Ask the user for the first number
-let firstNumber = Number(rlSync.question("Please enter the first number: "));
-
-// Ask the user for the second number
-let secondNumber = Number(rlSync.question("Please enter the second number: "));
-
-// Ask the user for the operation to be performed
-let operation = Number(rlSync.question("What operation would you like to perform:\n 1: Add 2: Subtract 3: Multiply 4: Divide : "));
-
-// Calculate the result of the operation
-let result; 
-if (operation === 1) {
-  // Add
-  result = firstNumber + secondNumber;
-} else if (operation === 2) {
-  // Subtract
-  result = firstNumber - secondNumber;
-} else if (operation === 3) {
-  // Multiply
-  result = firstNumber * secondNumber;
-} else if (operation === 4) {
-  // Divide
-  result = firstNumber / secondNumber;
+function prompt(message) {
+  console.log(`=> ${message}`);
 }
 
-// Return the result to the user
+function invalidNumber(number) {
+  return number.trimStart() === "" || Number.isNaN(Number(number));
+}
+
+prompt('Hi! Welcome to the calculator.');
+
+prompt('Please enter the first number: ');
+let firstNumber = rlSync.question();
+
+while (invalidNumber(firstNumber)) {
+  prompt(`Hmm.. that doesn't look like a number. Please try entering again: `);
+  firstNumber = rlSync.question();
+}
+
+prompt('Please enter the second number: ');
+let secondNumber = rlSync.question();
+
+while (invalidNumber(secondNumber)) {
+  prompt(`Hmm.. that doesn't look like a number. Please try entering again: `);
+  secondNumber = rlSync.question();
+}
+
+prompt('What operation would you like to perform:\n 1: Add 2: Subtract 3: Multiply 4: Divide : ');
+let operation = rlSync.question();
+
+while (!['1', '2', '3', '4'].includes(operation)) {
+  prompt('You must chose 1, 2, 3 or 4. Please try again: ');
+  operation = rlSync.question();
+}
+
+let result;
+switch (operation) {
+  case '1':
+    result = Number(firstNumber) + Number(secondNumber);
+    break;
+  case '2':
+    result = Number(firstNumber) - Number(secondNumber);
+    break;
+  case '3':
+    result = Number(firstNumber) * Number(secondNumber);
+    break;
+  case '4':
+    result = Number(firstNumber) / Number(secondNumber);
+    break;
+  default:
+    break;
+}
+
 console.log(`The result of the calculation is: ${result}`);
