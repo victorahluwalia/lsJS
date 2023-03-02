@@ -121,3 +121,4 @@ WHILE ITERATOR <= length of array one
   ITERATOR = ITERATOR + 1
 PRINT RESULT
 END
+/*
