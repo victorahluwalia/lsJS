@@ -8,7 +8,13 @@ function invalidNumber(number) {
   return number.trimStart() === "" || Number.isNaN(Number(number));
 }
 
+function validAnswerKeepGoing(answer) {
+  return (answer === "y" || answer === "n");
+}
+
 prompt('Hi! Welcome to the calculator.');
+
+while (true) {
 
 prompt('Please enter the first number: ');
 let firstNumber = rlSync.question();
@@ -52,4 +58,23 @@ switch (operation) {
     break;
 }
 
-console.log(`The result of the calculation is: ${result}`);
+prompt(`The result of the calculation is: ${result}`);
+
+prompt('Would you like to perform another calculation ? (y/n)')
+let keepGoing = rlSync.question().toLowerCase();
+
+while (!validAnswerKeepGoing(keepGoing)) {
+  prompt('You seem to have entered an invalid choice. Please enter either of the following: y / n')
+  keepGoing = rlSync.question().toLowerCase();
+}
+
+if (keepGoing === "n") {
+  prompt('Thank you for using the calculator today.')
+  break;
+}
+
+}
+
+
+
+
