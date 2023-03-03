@@ -1,0 +1,12 @@
+{
+  "welcome": "Hi! Welcome to the calculator.",
+  "firstNumberPrompt": "Please enter the first number: ",
+  "secondNumberPrompt": "Please enter the second number: ",
+  "invalidNumber": "Hmm.. that doesn't look like a number. Please try entering again: ",
+  "operation": "What operation would you like to perform:\n 1: Add 2: Subtract 3: Multiply 4: Divide : ",
+  "invalidOperation": "You must chose 1, 2, 3 or 4. Please try again: ",
+  "result": "The result of the calculation is:",
+  "newCalculation": "Would you like to perform another calculation ? (y/n)",
+  "invalidAnswer": "You seem to have entered an invalid choice. Please enter either of the following: y / n",
+  "End": "Thank you for using the calculator today."
+}
