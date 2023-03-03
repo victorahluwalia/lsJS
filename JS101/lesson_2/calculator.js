@@ -1,7 +1,13 @@
 const MESSAGES = require("./calculator_messages.json");
+const LANGUAGE = "en";
 const rlSync = require("readline-sync");
 
-function prompt(message) {
+function langMessages(message, lang) {
+  return MESSAGES[lang][message];
+}
+
+function prompt(key) {
+  let message = langMessages(key, LANGUAGE);
   console.log(`=> ${message}`);
 }
 
@@ -13,31 +19,31 @@ function validAnswerKeepGoing(answer) {
   return (answer === "y" || answer === "n");
 }
 
-prompt(MESSAGES['welcome']);
+prompt('welcome');
 
 while (true) {
 
-prompt(MESSAGES['firstNumberPrompt']);
+prompt('firstNumberPrompt');
 let firstNumber = rlSync.question();
 
 while (invalidNumber(firstNumber)) {
-  prompt(MESSAGES['invalidNumber']);
+  prompt('invalidNumber');
   firstNumber = rlSync.question();
 }
 
-prompt(MESSAGES['secondNumberPrompt']);
+prompt('secondNumberPrompt');
 let secondNumber = rlSync.question();
 
 while (invalidNumber(secondNumber)) {
-  prompt(MESSAGES['invalidNumber']);
+  prompt('invalidNumber');
   secondNumber = rlSync.question();
 }
 
-prompt(MESSAGES['operation']);
+prompt('operation');
 let operation = rlSync.question();
 
 while (!['1', '2', '3', '4'].includes(operation)) {
-  prompt(MESSAGES['invalidOperation']);
+  prompt('invalidOperation');
   operation = rlSync.question();
 }
 
@@ -59,18 +65,19 @@ switch (operation) {
     break;
 }
 
-prompt(`${MESSAGES['result']} ${result}`);
+prompt('result') 
+console.log(`${result}`);
 
-prompt(MESSAGES['newCalculation']);
+prompt('newCalculation');
 let keepGoing = rlSync.question().toLowerCase();
 
 while (!validAnswerKeepGoing(keepGoing)) {
-  prompt(MESSAGES['invalidAnswer']);
+  prompt('invalidAnswer');
   keepGoing = rlSync.question().toLowerCase();
 }
 
 if (keepGoing === "n") {
-  prompt(MESSAGES['End']);
+  prompt('End');
   break;
 }
 

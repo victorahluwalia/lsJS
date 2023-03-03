@@ -1,12 +1,26 @@
 {
+  "en": {
   "welcome": "Hi! Welcome to the calculator.",
   "firstNumberPrompt": "Please enter the first number: ",
   "secondNumberPrompt": "Please enter the second number: ",
   "invalidNumber": "Hmm.. that doesn't look like a number. Please try entering again: ",
   "operation": "What operation would you like to perform:\n 1: Add 2: Subtract 3: Multiply 4: Divide : ",
-  "invalidOperation": "You must chose 1, 2, 3 or 4. Please try again: ",
+  "invalidOperation": "You must choose 1, 2, 3 or 4. Please try again: ",
   "result": "The result of the calculation is:",
   "newCalculation": "Would you like to perform another calculation ? (y/n)",
   "invalidAnswer": "You seem to have entered an invalid choice. Please enter either of the following: y / n",
   "End": "Thank you for using the calculator today."
+  },
+  "es": {
+    "welcome": "¡Hola! Bienvenido a la calculadora.",
+    "firstNumberPrompt": "Por favor ingrese el primer número:",
+    "secondNumberPrompt": "Por favor ingrese el segundo número:",
+    "invalidNumber": "Hmm... eso no parece un número. Intente ingresar de nuevo:",
+    "operation": "Qué operación le gustaría realizar:\n 1: Sumar 2: Restar 3: Multiplicar 4: Dividir:",
+    "invalidOperation": "Debe elegir 1, 2, 3 o 4. Vuelva a intentarlo:",
+    "result": "El resultado del cálculo es:",
+    "newCalculation": "¿Desea realizar otro cálculo? (t/n)",
+    "invalidAnswer": "Parece que ha introducido una opción no válida. Ingrese cualquiera de los siguientes: s / n",
+    "End": "Gracias por usar la calculadora hoy."
+    }
 }
