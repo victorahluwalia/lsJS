@@ -45,7 +45,6 @@ while (true) {
     prompt('invalidDuration');
     loanYears = readlineSync.question();
   }
-  let loanMonths = loanYears * 12;
 
   prompt('askForApr');
   let annualRate = readlineSync.question();
@@ -54,6 +53,8 @@ while (true) {
     prompt('invalidApr');
     annualRate = readlineSync.question();
   }
+
+  let loanMonths = loanYears * 12;
   let monthlyRate = annualRate / (12 * 100);
 
   let monthlyPayment = loanAmount *
