@@ -1,30 +1,10 @@
-////// Inputs
-// Loan amount
-// Loan duration
-// APR
-
-//// Calculations
-// Loan duration in months
-// Monthly interest rate
-
-// Monthly payment (m)
-// let m = p * (j / (1 - Math.pow((1 + j), (-n))));
-// p (loan amount) ie. loanAmount
-// j (monthly interest rate)
-// n (loan duration in months)
-
-//// Output
-// Monthly payment (m) in float format with two decimals eg: $123.45
-
-////////////////////////////////////////////////////////////////////////////////
-
 const readlineSync = require("readline-sync");
 const MESSAGES = {
   welcome: 'Welcome to the mortgage calculator!',
   askForLoanAmount: 'What is your required loan amount for the mortgage?',
   invalidAmount: 'Please enter a valid loan amount. (Must be a number greater than zero)',
   askForLoanDuration: 'How many years will be the mortgage?',
-  invalidDuration: 'Please enter a valid loan duration. (Must be a number greater than zero)',
+  invalidDuration: 'Please enter a valid loan duration in years. (Must be a number greater than zero)',
   askForApr: 'What is your APR? (For example: please input 6 for a 6% APR rate; for a 3.5% APR rate please input 3.5)',
   invalidApr: 'Please enter a valid APR rate. (Must be a number greater than zero)',
   giveMonthlyPayment: 'Your monthly payment will be : ',
@@ -56,7 +36,6 @@ function invalidAprRate(amount) {
 prompt('welcome');
 
 while (true) {
-
   prompt('askForLoanAmount');
   let loanAmount = readlineSync.question();
 
