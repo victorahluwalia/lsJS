@@ -22,8 +22,8 @@ function prompt(message) {
 }
 
 function invalidNumber(amount) {
-  return (amount.trimStart() === "" || 
-          Number.isNaN(Number(amount)) || 
+  return (amount.trimStart() === "" ||
+          Number.isNaN(Number(amount)) ||
           Number(amount) <= 0);
 }
 
@@ -72,5 +72,4 @@ while (true) {
     prompt('goodbye');
     break;
   }
-
 }
