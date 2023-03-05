@@ -21,16 +21,10 @@ function prompt(message) {
   console.log(`=> ${text}`);
 }
 
-function invalidLoanAmount(amount) {
-  return (amount.trimStart() === "" || Number.isNaN(Number(amount)) || Number(amount) <= 0);
-}
-
-function invalidLoanDuration(amount) {
-  return (amount.trimStart() === "" || Number.isNaN(Number(amount)) || Number(amount) <= 0);
-}
-
-function invalidAprRate(amount) {
-  return (amount.trimStart() === "" || Number.isNaN(Number(amount)) || Number(amount) <= 0);
+function invalidNumber(amount) {
+  return (amount.trimStart() === "" || 
+          Number.isNaN(Number(amount)) || 
+          Number(amount) <= 0);
 }
 
 prompt('welcome');
@@ -39,24 +33,24 @@ while (true) {
   prompt('askForLoanAmount');
   let loanAmount = readlineSync.question();
 
-  while (invalidLoanAmount(loanAmount)) {
+  while (invalidNumber(loanAmount)) {
     prompt('invalidAmount');
     loanAmount = readlineSync.question();
   }
 
   prompt('askForLoanDuration');
   let loanYears = readlineSync.question();
-  let loanMonths = loanYears * 12;
 
-  while (invalidLoanDuration(loanYears)) {
+  while (invalidNumber(loanYears)) {
     prompt('invalidDuration');
     loanYears = readlineSync.question();
   }
+  let loanMonths = loanYears * 12;
 
   prompt('askForApr');
   let annualRate = readlineSync.question();
 
-  while (invalidAprRate(annualRate)) {
+  while (invalidNumber(annualRate)) {
     prompt('invalidApr');
     annualRate = readlineSync.question();
   }
