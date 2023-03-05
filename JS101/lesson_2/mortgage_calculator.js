@@ -69,7 +69,7 @@ while (true) {
   prompt('newCalculation');
   let keepCalculating = readlineSync.question();
 
-  if (keepCalculating === "n") {
+  if (keepCalculating.toLowerCase() === "n") {
     prompt('goodbye');
     break;
   }
