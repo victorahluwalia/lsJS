@@ -55,7 +55,8 @@ while (true) {
   }
 
   let loanMonths = loanYears * 12;
-  let monthlyRate = annualRate / (12 * 100);
+  let annualRatePercent = annualRate / 100;
+  let monthlyRate = annualRatePercent / 12;
 
   let monthlyPayment = loanAmount *
                       (monthlyRate /
