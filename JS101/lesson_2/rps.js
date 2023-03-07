@@ -18,7 +18,8 @@ const WINNING_MOVES = {
 
 let userScore = 0;
 let computerScore = 0;
-let winner = undefined;
+let roundWinner = undefined;
+let gameWinner = undefined;
 
 function prompt(message) {
   console.log(`=> ${message}`);
@@ -26,12 +27,28 @@ function prompt(message) {
 
 function determineWinner(userChoice, computerChoice) {
   if (WINNING_MOVES[userChoice].includes(computerChoice)) {
-    prompt(`You chose ${userChoice}, the computer chose ${computerChoice}. You win!`);
-    userScore += 1;
-    prompt(`You: ${userScore}  Computer: ${computerScore}`);
+    roundWinner = 'User';
   } else if (WINNING_MOVES[computerChoice].includes(userChoice)) {
-    prompt(`You chose ${userChoice}, the computer chose ${computerChoice}. The computer wins!`);
+    roundWinner =  'Computer';
+  } else {
+    roundWinner = 'tie';
+  }
+}
+
+function keepScore() {
+  if (roundWinner === 'User') {
+    userScore += 1;
+  } else if (roundWinner === 'Computer') {
     computerScore += 1;
+  }
+}
+
+function showWinner(userChoice, computerChoice) {
+  if (roundWinner === 'User') {
+    prompt(`You chose ${userChoice}, the computer chose ${computerChoice}. You win!`);
+    prompt(`You: ${userScore}  Computer: ${computerScore}`);
+  } else if (roundWinner === 'Computer') {
+    prompt(`You chose ${userChoice}, the computer chose ${computerChoice}. The computer wins!`);
     prompt(`You: ${userScore}  Computer: ${computerScore}`);
   } else {
     prompt(`You chose ${userChoice}, the computer chose ${computerChoice}. It's a draw!`);
@@ -41,12 +58,12 @@ function determineWinner(userChoice, computerChoice) {
 
 function playAgain() {
   if (userScore > computerScore) {
-    winner = 'You';
+    gameWinner = 'You';
   } else {
-    winner = 'Computer';
+    gameWinner = 'Computer';
   }
 
-  prompt(`The winner of the game is : ${winner}!`);
+  prompt(`The winner of the game is : ${gameWinner}!`);
   prompt('Game over. Do you want to play again ? (y/n)');
   let continueGame = readlineSync.question();
 
@@ -57,6 +74,7 @@ function playAgain() {
 
   if (continueGame === 'n') {
     prompt('Thank you for playing.');
+    console.clear();
   } else {
     runGame();
   }
@@ -67,7 +85,6 @@ function runGame() {
 
   userScore = 0;
   computerScore = 0;
-  gameCount = 0;
 
   while (userScore < 3 && computerScore < 3) {
     prompt(`Please choose one of the following: ${Object.keys(VALID_CHOICES).join(", ")}`);
@@ -84,6 +101,8 @@ function runGame() {
     let computerChoice = VALID_CHOICES[Object.keys(VALID_CHOICES)[randomIndex]];
 
     determineWinner(userChoice, computerChoice);
+    keepScore();
+    showWinner(userChoice, computerChoice);
   }
   playAgain();
 }
