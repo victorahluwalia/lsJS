@@ -3,12 +3,12 @@
 In general, you should be familiar with JavaScript syntax and operators. 
 You should also be able to clearly explain, talk about, or demonstrate the following topics:
 
-naming conventions: legal vs. idiomatic, illegal vs. non-idiomatic
-primitive values vs. objects
-type coercions: explicit and implicit
-numbers, including NaN and Infinity
-strings
-template literals
+(done) naming conventions: legal vs. idiomatic, illegal vs. non-idiomatic
+(done) primitive values vs. objects
+(ongoing) type coercions: explicit and implicit
+(done)numbers, including NaN and Infinity
+(done) strings
+(ongoing) template literals
 boolean vs. truthiness
 undefined and null
 array and object syntax
