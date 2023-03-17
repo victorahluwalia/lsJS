@@ -5,26 +5,6 @@ You should also be able to clearly explain, talk about, or demonstrate the follo
 
 
 
-variables as pointers
-variable shadowing
-
-
-
-functions
-functions vs. methods
-declarations, expressions, arrow functions
-definition and invocation
-default parameters
-return values
-parameters vs. arguments
-function, block, local, and global scope
-nested functions
-function composition
-output vs. return values, side effects
-pass-by-reference and pass-by-value
-the call stack
-
-exceptions: throwing and catching
 
 discuss a function's use and purpose (a "user-level" description) instead of its implementation
 */
