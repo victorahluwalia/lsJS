@@ -1,1 +1,2 @@
 # lsJS
+Starting collections
